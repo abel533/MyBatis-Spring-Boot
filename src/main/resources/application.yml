@@ -7,12 +7,14 @@ logging:
         tk.mybatis: DEBUG
 
 spring:
-    druid:
+    datasource:
         name: test
         url: jdbc:mysql://192.168.16.137:3306/test
         username: root
         password:
-        driverClassName: com.mysql.jdbc.Driver
+        # 使用druid数据源
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.jdbc.Driver
         filters: stat
         maxActive: 20
         initialSize: 1
