@@ -1,4 +1,4 @@
-#Spring Boot集成MyBatis的基础项目，项目使用Maven管理
+#Spring Boot集成MyBatis的基础项目
 
 #MyBatis3.3.0
 
@@ -10,7 +10,7 @@
 
 项目使用的mysql数据库，根据需要可以切换为其他数据库
 
-#说明
+##说明
 
 虽然MyBatis官方提供了`mybatis-spring-boot-starter`，但是改配置的可以控制的地方太少，因此短时间不会直接使用该starter
 
@@ -39,6 +39,10 @@ public class MyBatisMapperScannerConfig {
 
 }
 ```
+
+##SSM集成的基础项目
+
+###https://github.com/abel533/Mybatis-Spring
 
 ##MyBatis工具
 
