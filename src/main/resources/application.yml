@@ -1,5 +1,6 @@
 server:
     port: 8080
+    context-path: #/liuzh/
 
 logging:
     level:
@@ -33,6 +34,7 @@ spring:
         cache: false
         request-context-attribute: request
 
+#以下属性不可用
 #mybatis:
 #    pagehelper:
 #        dialect: mysql

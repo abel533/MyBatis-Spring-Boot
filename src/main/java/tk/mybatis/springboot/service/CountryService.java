@@ -53,8 +53,12 @@ public class CountryService {
         return countryMapper.selectByPrimaryKey(id);
     }
 
-    public void save(Country country){
-        if(country.getId()!=null){
+    public void deleteById(Integer id) {
+        countryMapper.deleteByPrimaryKey(id);
+    }
+
+    public void save(Country country) {
+        if (country.getId() != null) {
             countryMapper.updateByPrimaryKey(country);
         } else {
             countryMapper.insert(country);

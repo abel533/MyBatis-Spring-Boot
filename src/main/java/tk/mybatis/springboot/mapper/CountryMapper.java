@@ -24,18 +24,9 @@
 
 package tk.mybatis.springboot.mapper;
 
-import com.github.pagehelper.PageInfo;
-import tk.mybatis.springboot.model.Country;
-import tk.mybatis.springboot.model.CountryQueryModel;
 import tk.mybatis.mapper.MyMapper;
+import tk.mybatis.springboot.model.Country;
 
 public interface CountryMapper extends MyMapper<Country> {
 
-    /**
-     * 分页查询
-     *
-     * @param queryModel
-     * @return
-     */
-    PageInfo<Country> selectByCountryQueryModel(CountryQueryModel queryModel);
 }
