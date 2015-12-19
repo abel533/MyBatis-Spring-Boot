@@ -1,0 +1,53 @@
+server:
+    port: 8080
+
+logging:
+    level:
+        tk.mybatis: DEBUG
+
+spring:
+    druid:
+        name: test
+        url: jdbc:mysql://192.168.16.137:3306/test
+        username: root
+        password:
+        driverClassName: com.mysql.jdbc.Driver
+        filters: stat
+        maxActive: 20
+        initialSize: 1
+        maxWait: 60000
+        minIdle: 1
+        timeBetweenEvictionRunsMillis: 60000
+        minEvictableIdleTimeMillis: 300000
+        validationQuery: select 'x'
+        testWhileIdle: true
+        testOnBorrow: false
+        testOnReturn: false
+        poolPreparedStatements: true
+        maxOpenPreparedStatements: 20
+    mvc:
+        view:
+            prefix: /templates/
+            suffix: .ftl
+    freemarker:
+        cache: false
+        request-context-attribute: request
+
+#mybatis:
+#    pagehelper:
+#        dialect: mysql
+#        reasonable: true
+#        supportMethodsArguments: true
+#        returnPageInfo: check
+#        params: count=countSql
+#    mapper:
+#        mappers: tk.mybatis.mapper.MyMapper
+#        notEmpty: true
+#        style: camelhump
+#    sqlSessionFactoryBean:
+#        mapperLocations:
+#            - classpath:mapper/*.xml
+#            - classpath:mapper2/*.xml
+#        typeAliasesPackage: tk.mybatis.springboot.model
+#    mapperScanner:
+#        basePackage: tk.mybatis.springboot.mapper
