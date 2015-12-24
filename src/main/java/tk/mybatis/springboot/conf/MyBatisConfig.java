@@ -28,14 +28,18 @@ import com.github.pagehelper.PageHelper;
 import org.apache.ibatis.plugin.Interceptor;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
+import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.core.io.support.ResourcePatternResolver;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.transaction.annotation.TransactionManagementConfigurer;
 
 import javax.sql.DataSource;
-import java.io.IOException;
 import java.util.Properties;
 
 /**
@@ -45,19 +49,14 @@ import java.util.Properties;
  * @since 2015-12-19 10:11
  */
 @Configuration
-public class MyBatisConfig {
+@EnableTransactionManagement
+public class MyBatisConfig implements TransactionManagementConfigurer {
 
     @Autowired
     DataSource dataSource;
 
-    @Autowired
-    SqlSessionFactoryBean sqlSessionFactoryBean;
-
-    @Autowired
-    SqlSessionFactory sqlSessionFactory;
-
     @Bean(name = "sqlSessionFactory")
-    public SqlSessionFactoryBean sqlSessionFactoryBean() {
+    public SqlSessionFactory sqlSessionFactoryBean() {
         SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
         bean.setDataSource(dataSource);
         bean.setTypeAliasesPackage("tk.mybatis.springboot.model");
@@ -78,19 +77,21 @@ public class MyBatisConfig {
         ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
         try {
             bean.setMapperLocations(resolver.getResources("classpath:mapper/*.xml"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return bean;
-    }
-
-    @Bean
-    public SqlSessionFactory sqlSessionFactory() {
-        try {
-            return sqlSessionFactoryBean.getObject();
+            return bean.getObject();
         } catch (Exception e) {
             e.printStackTrace();
             throw new RuntimeException(e);
         }
+    }
+
+    @Bean
+    public SqlSessionTemplate sqlSessionTemplate(SqlSessionFactory sqlSessionFactory) {
+        return new SqlSessionTemplate(sqlSessionFactory);
+    }
+
+    @Bean
+    @Override
+    public PlatformTransactionManager annotationDrivenTransactionManager() {
+        return new DataSourceTransactionManager(dataSource);
     }
 }

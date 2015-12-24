@@ -45,7 +45,7 @@ spring:
 #        returnPageInfo: check
 #        params: count=countSql
 #    mapper:
-#        mappers: tk.mybatis.mapper.MyMapper
+#        mappers: tk.mybatis.springboot.util.MyMapper
 #        notEmpty: true
 #        style: camelhump
 #    sqlSessionFactoryBean:

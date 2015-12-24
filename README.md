@@ -29,7 +29,7 @@ public class MyBatisMapperScannerConfig {
         mapperScannerConfigurer.setSqlSessionFactoryBeanName("sqlSessionFactory");
         mapperScannerConfigurer.setBasePackage("tk.mybatis.springboot.mapper");
         Properties properties = new Properties();
-        properties.setProperty("mappers", "tk.mybatis.mapper.MyMapper");
+        properties.setProperty("mappers", "tk.mybatis.springboot.util.MyMapper");
         properties.setProperty("notEmpty", "false");
         properties.setProperty("IDENTITY", "MYSQL");
         //这里使用的通用Mapper的MapperScannerConfigurer，所有有下面这个方法

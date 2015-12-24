@@ -19,11 +19,11 @@
             </td>
             <td><input type="submit" value="保存"/></td>
         </tr>
-        <#if msg??>
+    <#if msg??>
         <tr style="color:#00ba00;">
             <th colspan="5">${msg}</th>
         </tr>
-        </#if>
+    </#if>
     </table>
 </form>
 </body>
