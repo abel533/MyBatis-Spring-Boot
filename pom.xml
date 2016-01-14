@@ -18,8 +18,8 @@
         <java.version>1.8</java.version>
         <!--  依赖版本  -->
         <mybatis.version>3.3.0</mybatis.version>
-        <mapper.version>3.3.2</mapper.version>
-        <pagehelper.version>4.0.3</pagehelper.version>
+        <mapper.version>3.3.4</mapper.version>
+        <pagehelper.version>4.1.1</pagehelper.version>
     </properties>
 
     <dependencies>

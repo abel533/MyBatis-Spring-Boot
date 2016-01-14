@@ -44,7 +44,7 @@ public class CountryService {
 
     public List<Country> getAll(Country country) {
         if (country.getPage() != null && country.getRows() != null) {
-            PageHelper.startPage(country.getPage(), country.getRows());
+            PageHelper.startPage(country.getPage(), country.getRows(), "id");
         }
         return countryMapper.selectAll();
     }

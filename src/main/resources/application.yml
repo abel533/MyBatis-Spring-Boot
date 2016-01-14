@@ -8,6 +8,12 @@ logging:
 
 spring:
     datasource:
+#        url: jdbc:sqlserver://192.168.16.200:1433;DatabaseName=test
+#        username: sa
+#        password: 123456
+#        # 使用druid数据源
+#        type: com.alibaba.druid.pool.DruidDataSource
+#        driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
         name: test
         url: jdbc:mysql://192.168.16.137:3306/test
         username: root
