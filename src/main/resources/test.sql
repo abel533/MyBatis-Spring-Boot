@@ -8,9 +8,35 @@ CREATE TABLE `country` (
   PRIMARY KEY (`Id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='国家信息';
 
+DROP TABLE IF EXISTS `city`;
+CREATE TABLE `city` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+  `state` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='市级信息';
 
-LOCK TABLES `country` WRITE;
+CREATE TABLE `user_info` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(32) NOT NULL DEFAULT '' COMMENT '用户名',
+  `password` varchar(32) DEFAULT NULL COMMENT '密码',
+  `usertype` varchar(2) DEFAULT NULL COMMENT '用户类型',
+  `enabled` int(2) DEFAULT NULL COMMENT '是否可用',
+  `realname` varchar(32) DEFAULT NULL COMMENT '真实姓名',
+  `qq` varchar(14) DEFAULT NULL COMMENT 'QQ',
+  `email` varchar(100) DEFAULT NULL,
+  `tel` varchar(255) DEFAULT NULL COMMENT '联系电话',
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COMMENT='用户信息表';
 
+-- 用户信息
+INSERT INTO `user_info` VALUES ('1', 'test1', '12345678', '1', null, null, null, null, null);
+INSERT INTO `user_info` VALUES ('2', 'test2', 'aaaa', '2', null, null, null, null, null);
+INSERT INTO `user_info` VALUES ('3', 'test3', 'bbbb', '1', null, null, null, null, null);
+INSERT INTO `user_info` VALUES ('4', 'test4', 'cccc', '2', null, null, null, null, null);
+INSERT INTO `user_info` VALUES ('5', 'test5', 'dddd', '1', null, null, null, null, null);
+
+-- 国家信息
 INSERT INTO `country` VALUES (1,'Angola','AO');
 INSERT INTO `country` VALUES (2,'Afghanistan','AF');
 INSERT INTO `country` VALUES (3,'Albania','AL');
@@ -195,4 +221,6 @@ INSERT INTO `country` VALUES (181,'Zimbabwe','ZW');
 INSERT INTO `country` VALUES (182,'Zaire','ZR');
 INSERT INTO `country` VALUES (183,'Zambia','ZM');
 
-UNLOCK TABLES;
+-- 城市信息
+INSERT INTO `city` VALUES ('1', '石家庄', '河北');
+INSERT INTO `city` VALUES ('2', '邯郸', '河北');

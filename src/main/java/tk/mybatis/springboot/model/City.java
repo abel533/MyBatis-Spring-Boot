@@ -24,51 +24,29 @@
 
 package tk.mybatis.springboot.model;
 
-public class Country extends BaseEntity {
-    /**
-     * 名称
-     */
-    private String countryname;
+/**
+ * @author liuzh_3nofxnp
+ * @since 2016-01-22 22:16
+ */
+public class City extends BaseEntity {
+    private String name;
 
-    /**
-     * 代码
-     */
-    private String countrycode;
+    private String state;
 
-    /**
-     * 获取名称
-     *
-     * @return countryname - 名称
-     */
-    public String getCountryname() {
-        return countryname;
+    public String getName() {
+        return name;
     }
 
-    /**
-     * 设置名称
-     *
-     * @param countryname 名称
-     */
-    public void setCountryname(String countryname) {
-        this.countryname = countryname;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    /**
-     * 获取代码
-     *
-     * @return countrycode - 代码
-     */
-    public String getCountrycode() {
-        return countrycode;
+    public String getState() {
+        return state;
     }
 
-    /**
-     * 设置代码
-     *
-     * @param countrycode 代码
-     */
-    public void setCountrycode(String countrycode) {
-        this.countrycode = countrycode;
+    public void setState(String state) {
+        this.state = state;
     }
 
 }

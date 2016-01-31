@@ -22,53 +22,46 @@
  * THE SOFTWARE.
  */
 
-package tk.mybatis.springboot.model;
+package tk.mybatis.springboot.service;
 
-public class Country extends BaseEntity {
-    /**
-     * 名称
-     */
-    private String countryname;
+import com.github.pagehelper.PageHelper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import tk.mybatis.springboot.mapper.UserInfoMapper;
+import tk.mybatis.springboot.model.UserInfo;
 
-    /**
-     * 代码
-     */
-    private String countrycode;
+import java.util.List;
 
-    /**
-     * 获取名称
-     *
-     * @return countryname - 名称
-     */
-    public String getCountryname() {
-        return countryname;
+/**
+ * @author liuzh
+ * @since 2016-01-31 21:42
+ */
+@Service
+public class UserInfoService {
+
+    @Autowired
+    private UserInfoMapper userInfoMapper;
+
+    public List<UserInfo> getAll(UserInfo UserInfo) {
+        if (UserInfo.getPage() != null && UserInfo.getRows() != null) {
+            PageHelper.startPage(UserInfo.getPage(), UserInfo.getRows(), "id");
+        }
+        return userInfoMapper.selectAll();
     }
 
-    /**
-     * 设置名称
-     *
-     * @param countryname 名称
-     */
-    public void setCountryname(String countryname) {
-        this.countryname = countryname;
+    public UserInfo getById(Integer id) {
+        return userInfoMapper.selectByPrimaryKey(id);
     }
 
-    /**
-     * 获取代码
-     *
-     * @return countrycode - 代码
-     */
-    public String getCountrycode() {
-        return countrycode;
+    public void deleteById(Integer id) {
+        userInfoMapper.deleteByPrimaryKey(id);
     }
 
-    /**
-     * 设置代码
-     *
-     * @param countrycode 代码
-     */
-    public void setCountrycode(String countrycode) {
-        this.countrycode = countrycode;
+    public void save(UserInfo country) {
+        if (country.getId() != null) {
+            userInfoMapper.updateByPrimaryKey(country);
+        } else {
+            userInfoMapper.insert(country);
+        }
     }
-
 }

@@ -24,51 +24,47 @@
 
 package tk.mybatis.springboot.model;
 
-public class Country extends BaseEntity {
-    /**
-     * 名称
-     */
-    private String countryname;
+import javax.persistence.*;
 
-    /**
-     * 代码
-     */
-    private String countrycode;
+/**
+ * 基础信息
+ *
+ * @author liuzh
+ * @since 2016-01-31 21:42
+ */
+public class BaseEntity {
+    @Id
+    @Column(name = "Id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
-    /**
-     * 获取名称
-     *
-     * @return countryname - 名称
-     */
-    public String getCountryname() {
-        return countryname;
+    @Transient
+    private Integer page = 1;
+
+    @Transient
+    private Integer rows = 10;
+
+    public Integer getId() {
+        return id;
     }
 
-    /**
-     * 设置名称
-     *
-     * @param countryname 名称
-     */
-    public void setCountryname(String countryname) {
-        this.countryname = countryname;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    /**
-     * 获取代码
-     *
-     * @return countrycode - 代码
-     */
-    public String getCountrycode() {
-        return countrycode;
+    public Integer getPage() {
+        return page;
     }
 
-    /**
-     * 设置代码
-     *
-     * @param countrycode 代码
-     */
-    public void setCountrycode(String countrycode) {
-        this.countrycode = countrycode;
+    public void setPage(Integer page) {
+        this.page = page;
     }
 
+    public Integer getRows() {
+        return rows;
+    }
+
+    public void setRows(Integer rows) {
+        this.rows = rows;
+    }
 }
