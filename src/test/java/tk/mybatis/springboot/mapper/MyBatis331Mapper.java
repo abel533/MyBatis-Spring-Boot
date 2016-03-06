@@ -52,6 +52,12 @@ public interface MyBatis331Mapper {
     @Options(useGeneratedKeys = true, keyProperty = "id")
     int insertCities(List<City2> cities);
 
+    /**
+     * 根据主键查询一个
+     *
+     * @param id
+     * @return
+     */
     @Results(id = "cityResult", value = {
         @Result(property = "id", column = "id", id = true),
         @Result(property = "cityName", column = "name", id = true),
@@ -60,7 +66,11 @@ public interface MyBatis331Mapper {
     @Select("select id, name, state from city where id = #{id}")
     City2 selectByCityId(Integer id);
 
-
+    /**
+     * 查询全部，引用上面的Results
+     *
+     * @return
+     */
     @ResultMap("cityResult")
     @Select("select id, name, state from city")
     List<City2> selectAll();
