@@ -24,6 +24,8 @@
 
 package tk.mybatis.springboot.model;
 
+import java.time.LocalDateTime;
+
 /**
  * 用户信息
  *
@@ -38,6 +40,17 @@ public class UserInfo extends BaseEntity {
     private String qq;
     private String email;
     private String tel;
+
+    // 测试java8 time typeHandler
+    private LocalDateTime createTime;
+
+    public LocalDateTime getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(LocalDateTime createTime) {
+        this.createTime = createTime;
+    }
 
     public String getUsername() {
         return username;
