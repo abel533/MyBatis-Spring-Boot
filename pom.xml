@@ -105,7 +105,19 @@
             <version>${mapper.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.github.javaplugs</groupId>
+            <artifactId>mybatis-types</artifactId>
+            <version>0.3</version>
+        </dependency>
     </dependencies>
+
+    <repositories>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
+    </repositories>
 
     <build>
         <plugins>

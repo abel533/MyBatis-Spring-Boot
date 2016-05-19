@@ -60,6 +60,7 @@ public class MyBatisConfig implements TransactionManagementConfigurer {
         SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
         bean.setDataSource(dataSource);
         bean.setTypeAliasesPackage("tk.mybatis.springboot.model");
+        bean.setTypeHandlersPackage("com.github.javaplugs.mybatis");
 
         //分页插件
         PageHelper pageHelper = new PageHelper();
