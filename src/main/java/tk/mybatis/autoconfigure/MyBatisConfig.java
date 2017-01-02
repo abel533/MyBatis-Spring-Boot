@@ -24,7 +24,7 @@
 
 package tk.mybatis.autoconfigure;
 
-import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInterceptor;
 import org.apache.ibatis.plugin.Interceptor;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
@@ -67,16 +67,16 @@ public class MyBatisConfig implements TransactionManagementConfigurer {
         bean.setTypeAliasesPackage("tk.mybatis.springboot.model");
 
         //分页插件
-        PageHelper pageHelper = new PageHelper();
+        PageInterceptor interceptor = new PageInterceptor();
         Properties properties = new Properties();
         properties.setProperty("reasonable", "true");
         properties.setProperty("supportMethodsArguments", "true");
         properties.setProperty("returnPageInfo", "check");
         properties.setProperty("params", "count=countSql");
-        pageHelper.setProperties(properties);
+        interceptor.setProperties(properties);
 
         //添加插件
-        bean.setPlugins(new Interceptor[]{pageHelper});
+        bean.setPlugins(new Interceptor[]{interceptor});
 
         //添加XML目录
         ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();

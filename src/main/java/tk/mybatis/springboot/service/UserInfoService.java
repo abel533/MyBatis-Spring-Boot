@@ -44,7 +44,7 @@ public class UserInfoService {
 
     public List<UserInfo> getAll(UserInfo UserInfo) {
         if (UserInfo.getPage() != null && UserInfo.getRows() != null) {
-            PageHelper.startPage(UserInfo.getPage(), UserInfo.getRows(), "id");
+            PageHelper.startPage(UserInfo.getPage(), UserInfo.getRows());
         }
         return userInfoMapper.selectAll();
     }
