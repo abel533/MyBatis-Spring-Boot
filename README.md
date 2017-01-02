@@ -3,7 +3,7 @@
 - Spring Boot 1.4.3.RELEASE
 - mybatis-spring-boot-starter 1.1.1
 - mapper-spring-boot-starter 1.0.0
-- pagehelper-spring-boot-starter
+- pagehelper-spring-boot-starter 1.0.0
 
 ## 项目依赖
 ```xml
