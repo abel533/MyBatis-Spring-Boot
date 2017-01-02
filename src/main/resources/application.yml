@@ -4,16 +4,10 @@ server:
 
 logging:
     level:
-        tk.mybatis: DEBUG
+        tk.mybatis: TRACE
 
 spring:
     datasource:
-#        url: jdbc:sqlserver://192.168.16.200:1433;DatabaseName=test
-#        username: sa
-#        password: 123456
-#        # 使用druid数据源
-#        type: com.alibaba.druid.pool.DruidDataSource
-#        driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
         name: test
         url: jdbc:mysql://192.168.16.137:3306/test
         username: root
@@ -42,22 +36,19 @@ spring:
         cache: false
         request-context-attribute: request
 
-#以下属性不可用
-#mybatis:
-#    pagehelper:
-#        dialect: mysql
-#        reasonable: true
-#        supportMethodsArguments: true
-#        returnPageInfo: check
-#        params: count=countSql
-#    mapper:
-#        mappers: tk.mybatis.springboot.util.MyMapper
-#        notEmpty: true
-#        style: camelhump
-#    sqlSessionFactoryBean:
-#        mapperLocations:
-#            - classpath:mapper/*.xml
-#            - classpath:mapper2/*.xml
-#        typeAliasesPackage: tk.mybatis.springboot.model
-#    mapperScanner:
-#        basePackage: tk.mybatis.springboot.mapper
+
+mybatis:
+    type-aliases-package: tk.mybatis.springboot.model
+    mapper-locations: classpath:mapper/*.xml
+
+mapper:
+    mappers:
+        - tk.mybatis.springboot.util.MyMapper
+    not-empty: false
+    identity: MYSQL
+
+pagehelper:
+    helperDialect: mysql
+    reasonable: true
+    supportMethodsArguments: true
+    params: count=countSql
