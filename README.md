@@ -10,6 +10,14 @@
 
 项目使用的mysql数据库，根据需要可以切换为其他数据库
 
+##重要提示
+
+本项目一开始对 `@AutoConfigureAfter` 的用法有问题，详细内容请看：
+
+>[Spring Boot - 配置排序依赖技巧](http://blog.csdn.net/isea533/article/details/53975720)
+
+本项目已经按照上文的技巧对包和用法做了修改，基本上可以保证 100% 没错。
+
 ##说明
 
 虽然MyBatis官方提供了`mybatis-spring-boot-starter`，但是该配置的可以控制的地方太少，因此短时间不会直接使用该`starter`。
