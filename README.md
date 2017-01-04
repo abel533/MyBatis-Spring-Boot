@@ -27,6 +27,8 @@
 </dependency>
 ```
 
+当使用低版本的 Spring Boot 时（例如 1.3 或更低版本），你还可以尝试 mapper 和 pagehelper starter 的 0.1.0 版本（兼容高版本 Spring Boot）。
+
 ## application.yml 配置
 
 完整配置可以参考 [src/main/resources/application.yml](https://github.com/abel533/MyBatis-Spring-Boot/blob/master/src/main/resources/application.yml) ，和 MyBatis 相关的部分配置如下：
