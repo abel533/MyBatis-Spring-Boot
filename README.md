@@ -51,6 +51,26 @@ pagehelper:
     params: count=countSql
 ```
 
+## application.properties 配置
+因为使用这种方式的人多，为了避免部分人看不懂上面的配置方式，这里提供 properties 方式的配置
+```properties
+#mybatis
+mybatis.type-aliases-package=tk.mybatis.springboot.model
+mybatis.mapper-locations=classpath:mapper/*.xml
+
+#mapper
+#mappers 多个接口时逗号隔开
+mapper.mappers=tk.mybatis.springboot.util.MyMapper
+mapper.not-empty=false
+mapper.identity=MYSQL
+
+#pagehelper
+pagehelper.helperDialect=mysql
+pagehelper.reasonable=true
+pagehelper.supportMethodsArguments=true
+pagehelper.params=count=countSql
+```
+
 注意 mapper 配置，因为参数名固定，所以接收参数使用的对象，按照 Spring Boot 配置规则，大写字母都变了带横线的小写字母。针对如 IDENTITY（对应i-d-e-n-t-i-t-y）提供了全小写的 identity 配置，如果 IDE 能自动提示，看自动提示即可。
 
 注意 pagehelper 配置，因为分页插件根据自己的扩展不同，支持的参数也不同，所以不能用固定的对象接收参数，所以这里使用的 `Map<String,String>`，因此参数名是什么这里就写什么，IDE 也不会有自动提示。
