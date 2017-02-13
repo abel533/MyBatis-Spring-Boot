@@ -30,7 +30,7 @@ import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
@@ -48,7 +48,7 @@ import java.util.List;
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
 @Transactional
-@SpringApplicationConfiguration(Application.class)
+@SpringBootTest(classes = Application.class)
 public class MyBatis331Test {
     private Logger logger = LoggerFactory.getLogger(getClass());
 
@@ -70,7 +70,7 @@ public class MyBatis331Test {
     }
 
     @Test
-    public void testSelectById(){
+    public void testSelectById() {
         City2 city2 = mapper.selectByCityId(1);
         logger.info(city2.toString());
         Assert.assertNotNull(city2);
@@ -79,9 +79,9 @@ public class MyBatis331Test {
     }
 
     @Test
-    public void testSelectAll(){
+    public void testSelectAll() {
         List<City2> city2List = mapper.selectAll();
-        for(City2 c2 : city2List){
+        for (City2 c2 : city2List) {
             logger.info(c2.toString());
             Assert.assertNotNull(c2);
             Assert.assertNotNull(c2.getCityName());
