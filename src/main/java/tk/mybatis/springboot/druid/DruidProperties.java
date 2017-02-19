@@ -13,6 +13,7 @@ public class DruidProperties {
     private String url;
     private String username;
     private String password;
+    private String driverClass;
 
     private int     maxActive;
     private int     minIdle;
@@ -41,6 +42,14 @@ public class DruidProperties {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getDriverClass() {
+        return driverClass;
+    }
+
+    public void setDriverClass(String driverClass) {
+        this.driverClass = driverClass;
     }
 
     public int getMaxActive() {
