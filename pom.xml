@@ -102,7 +102,7 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid-spring-boot-starter</artifactId>
-            <version>RELEASE</version>
+            <version>1.1.0</version>
         </dependency>
 
     </dependencies>
