@@ -74,17 +74,11 @@
             <version>1.0.11</version>
         </dependency>
 
-        <!--mybatis-->
-        <dependency>
-            <groupId>org.mybatis.spring.boot</groupId>
-            <artifactId>mybatis-spring-boot-starter</artifactId>
-            <version>RELEASE</version>
-        </dependency>
         <!--mapper-->
         <dependency>
             <groupId>tk.mybatis</groupId>
             <artifactId>mapper-spring-boot-starter</artifactId>
-            <version>RELEASE</version>
+            <version>1.2.0</version>
         </dependency>
         <!--pagehelper-->
         <dependency>
