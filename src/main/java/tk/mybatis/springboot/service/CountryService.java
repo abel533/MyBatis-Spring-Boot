@@ -28,6 +28,8 @@ import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
+import tk.mybatis.mapper.weekend.Weekend;
+import tk.mybatis.mapper.weekend.WeekendCriteria;
 import tk.mybatis.springboot.mapper.CountryMapper;
 import tk.mybatis.springboot.model.Country;
 
@@ -56,6 +58,21 @@ public class CountryService {
             criteria.andLike("countrycode", "%" + country.getCountrycode() + "%");
         }
         return countryMapper.selectByExample(example);
+    }
+
+    public List<Country> getAllByWeekend(Country country) {
+        if (country.getPage() != null && country.getRows() != null) {
+            PageHelper.startPage(country.getPage(), country.getRows());
+        }
+        Weekend<Country> weekend = Weekend.of(Country.class);
+        WeekendCriteria<Country, Object> criteria = weekend.weekendCriteria();
+        if (country.getCountryname() != null && country.getCountryname().length() > 0) {
+            criteria.andLike(Country::getCountryname, "%" + country.getCountryname() + "%");
+        }
+        if (country.getCountrycode() != null && country.getCountrycode().length() > 0) {
+            criteria.andLike(Country::getCountrycode, "%" + country.getCountrycode() + "%");
+        }
+        return countryMapper.selectByExample(weekend);
     }
 
     public Country getById(Integer id) {

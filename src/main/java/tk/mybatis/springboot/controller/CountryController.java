@@ -51,7 +51,7 @@ public class CountryController {
     @RequestMapping
     public ModelAndView getAll(Country country) {
         ModelAndView result = new ModelAndView("index");
-        List<Country> countryList = countryService.getAll(country);
+        List<Country> countryList = countryService.getAllByWeekend(country);
         result.addObject("pageInfo", new PageInfo<Country>(countryList));
         result.addObject("queryParam", country);
         result.addObject("page", country.getPage());
