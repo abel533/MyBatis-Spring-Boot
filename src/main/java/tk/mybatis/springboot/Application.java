@@ -1,6 +1,7 @@
 package tk.mybatis.springboot;
 
-import org.mybatis.spring.annotation.MapperScan;
+//特别注意，下面的是 tk.MapperScan
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import tk.mybatis.spring.annotation.MapperScan;
 
 /**
  * @author liuzh
