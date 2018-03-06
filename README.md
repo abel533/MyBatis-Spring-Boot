@@ -27,13 +27,13 @@ GitHub项目：https://github.com/mybatis-book/book
 <dependency>
     <groupId>tk.mybatis</groupId>
     <artifactId>mapper-spring-boot-starter</artifactId>
-    <version>1.1.4</version>
+    <version>1.2.4</version>
 </dependency>
 <!--pagehelper-->
 <dependency>
     <groupId>com.github.pagehelper</groupId>
     <artifactId>pagehelper-spring-boot-starter</artifactId>
-    <version>1.2.1</version>
+    <version>1.2.3</version>
 </dependency>
 ```
 ## Spring DevTools 配置
