@@ -106,7 +106,7 @@ pagehelper:
 ## SSM集成的基础项目 
 >https://github.com/abel533/Mybatis-Spring
 
-## MyBatis工具 http://www.mybatis.tk
+## MyBatis工具 https://mybatis.io
 
 - 推荐使用 Mybatis 通用 Mapper3 https://github.com/abel533/Mapper
 
@@ -118,4 +118,4 @@ pagehelper:
 
 - 作者邮箱：abel533@gmail.com
 
-- 如需加群，请通过 http://mybatis.tk 首页按钮加群。
+- 如需加群，请通过 https://mybatis.io 首页按钮加群。
